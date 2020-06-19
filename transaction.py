@@ -24,10 +24,7 @@ def read_transaction(transaction):
     return transaction[0], transaction[1], transaction[2], decimal.Decimal(transaction[3])
 
 @timing
-def process_ledger():
-
-    ledger = initialize_data(5, 10)
-    ledger = sorted(ledger, key=itemgetter(0))
+def process_ledger(ledger):
 
     for element in ledger:
         print(element)
@@ -67,10 +64,9 @@ def process_ledger():
 
 
 # print(process_ledger(ledger))
+def get_balance_by_name_date(name, date, ledger):
 
-def get_balance_by_name_date(name, date):
-
-    processed_ledger = process_ledger()
+    processed_ledger = process_ledger(ledger)
 
     customer_transaction_dict = processed_ledger[name]
 
@@ -83,4 +79,10 @@ def get_balance_by_name_date(name, date):
 
     return balance
 
-print(get_balance_by_name_date('benjamin','2020-06-14'))
+HOW_MANY_CUSTOMERS=5
+LEDGER_SIZE=10
+
+ledger = initialize_data(HOW_MANY_CUSTOMERS,LEDGER_SIZE)
+ledger = sorted(ledger, key=itemgetter(0))
+
+print("amy's balance: {} for 2020-06-17".format(get_balance_by_name_date('amy','2020-06-17',ledger)))

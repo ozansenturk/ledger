@@ -14,6 +14,12 @@ dictionary keeps the customers whilst the inner one the transactions. Next, the
 dictionary of dictionaries is the 'processed ledger' which means that it is ready
 to calculate the balance for the given date.
 
+## HOW TO RUN
+pyhton3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+pyhon3 transaction.py
+
 Feel free to ask more information. 
 ozan.senturk@gmail.com
 www.analyticai.co.uk

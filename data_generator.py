@@ -2,7 +2,7 @@ from faker import Faker
 from random import randrange
 import random
 
-seed =2023
+seed =2020
 fake = Faker()
 fake.random.seed(seed)
 random.seed(seed)
@@ -25,11 +25,11 @@ def get_amount(how_many=10):
     amount_list = ['{:,.2f}'.format(randrange(5,100,5)) for i in range(0,how_many)]
     return amount_list
 
-def initialize_data(how_many=10, ledger_size=100):
+def initialize_data(how_many_customers=10, ledger_size=100):
 
-    names = get_names(how_many)
-    dates = get_dates(how_many)
-    money = get_amount(how_many)
+    names = get_names(how_many_customers)
+    dates = get_dates(how_many_customers)
+    money = get_amount(how_many_customers)
 
     ledger = []
     for i in range(0,ledger_size):
@@ -45,7 +45,7 @@ def initialize_data(how_many=10, ledger_size=100):
 
     return ledger
 
-ledger = initialize_data(5,10)
+
 
 
 
